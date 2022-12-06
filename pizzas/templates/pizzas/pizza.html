@@ -1,0 +1,19 @@
+{% extends 'pizzas/base.html' %}
+
+{% block content %}
+
+<p>Pizza : {{ pizza }}</p>
+
+<p>Garnitures:</p>
+<ul>
+	{% for topping in toppings %}
+		<li>
+			<p>{{ topping.date_added|date:'M d, Y H:i' }}</p> <!-- Horodatage des garnitures au format Mois jour, Année heure ---> 
+			<p>{{ topping.topping_list|linebreaks }}</p><!--- Affichage des textes des garnitures avec des sauts de lignes compris par les navigateurs web --->
+		</li>
+	{% empty %}
+		<li>Il n'y a pas encore de garniture mentionnés pour cette pizza encore.</li>
+	{% endfor %}
+</ul>
+
+{% endblock content %}

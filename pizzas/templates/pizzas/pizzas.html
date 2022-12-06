@@ -1,0 +1,17 @@
+{% extends 'pizzas/base.html' %}
+
+{% block content %}
+
+	<p>Noms de pizzas</p>
+
+	<ul> <!--- Liste désordonnées de pizzas --->
+		{% for pizza in pizzas %} <!--- Transformation de la liste noms_pizzas en listes à puce --->
+			<li>
+				 <a href ="{% url 'recette_pizza:pizza' pizza.id %}"> {{ pizza }}</a>
+			</li>
+			{% empty %}<!--- Si rien dans la liste, afficher ce message --->
+			<li>Il n'y a pas encore de noms de pizzas ajoutées.</li>
+		{% endfor %}
+	</ul>
+
+{% endblock content %}
